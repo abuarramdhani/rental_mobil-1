@@ -17,9 +17,6 @@
                 <div class="col-6">
                     <h1 class="h3 mb-4 text-gray-800">Halaman Pesanan</h1>
                 </div>
-                <div class="col-6 text-right">
-                    <a class="btn btn-primary" href="<?= base_url('pesanan/tambah-pesanan') ?>"><i class="fas fa-plus mr-2"></i>Tambah Pesanan</a>
-                </div>
             </div>
         
             <div class="row">
@@ -40,7 +37,7 @@
                         </thead>
                         <tbody>
                             <?php $mulai++; foreach($data->result_array() as $val) : ?>
-                            <?php if($val['STATUS_TRANSAKSI'] == 'belum dibayar' || $val['STATUS_TRANSAKSI'] == 'sudah dibayar') : ?>
+                            <?php if($val['STATUS_TRANSAKSI'] == 'diproses') : ?>
                               <tr>
                                   <th><?= $mulai++ ?></th>
                                   <th><?= $val['KODE_TRANSAKSI'] ?></th>
@@ -50,12 +47,7 @@
                                   <td><?= $val['TGL_PEMBAYARAN'] ?></td>
                                   <td><?= ucwords($val['STATUS_TRANSAKSI']) ?></td>
                                   <td class="text-center">
-                                    <a class="badge badge-warning" href="<?= base_url('mobil/detail-mobil/').$val['ID']?>">Detail</a>
-                                    <?php if($val['STATUS_TRANSAKSI'] == 'belum dibayar') :  ?>
-                                      <a class="badge badge-primary" href="<?= base_url('pesanan/bayar-pesanan/').$val['ID'] ?>">Bayar</a>
-                                    <?php elseif($val['STATUS_TRANSAKSI'] == 'sudah dibayar'): ?>
-                                      <a class="badge badge-primary" href="<?= base_url('pesanan/proses-pesanan/').$val['ID'] ?>">Proses</a>
-                                    <?php endif; ?>
+                                    <a class="badge badge-primary" href="<?= base_url('pesanan/pesanan-selesai/').$val['ID']?>">Selesai</a>
                                   </td>
                               </tr>
                             <?php endif; ?>

@@ -22,13 +22,14 @@ class Auth_model extends CI_Model {
                     'message' => 'Anda Telah Login',
                     'data_session' => [
                         'name' => $query->row_array()['NAME'],
-                        'id_user' => $query->row_array()['ID_USER']
+                        'id_user' => $query->row_array()['ID_USER'],
+                        'role_id' => $query->row_array()['GROUP_USER']
                     ]
                 ];
             }else{
                 return [
                     'verifikasi' => 0,
-                    'message' => 'User Tidak Ditemukan'
+                    'message' => 'Password Salah'
                 ];
             }
             

@@ -39,11 +39,22 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-            <div class="row">
-                <div class="col-6">
-                    <h1 class="h3 mb-4 text-gray-800">Halaman Tracking Mobil</h1>
-                </div>
-            </div>
+          <section class="content-header">
+            <h1>MAPS</h1>
+          </section><!-- Main content -->
+          <section class="content">
+              <div class="row">
+                  <!-- left column -->
+                  <div class="col-md-12">
+                      <div class="box box-info">
+                          <div class="box-header with-border">
+                              <h3 class="box-title">Mobil</h3>
+                          </div><!-- /.box-header -->
+                            <div id="googleMap" style="width:100%;height:580px;"></div>
+                      </div>
+                  </div><!--/.col (right) -->
+              </div>
+          </section><!-- /.content -->
         </div>
         <!-- /.container-fluid -->
 

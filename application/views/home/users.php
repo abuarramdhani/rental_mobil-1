@@ -18,7 +18,7 @@
                     <h1 class="h3 mb-4 text-gray-800">Halaman Pesanan</h1>
                 </div>
                 <div class="col-6 text-right">
-                    <a class="btn btn-primary" href="<?= base_url('pesanan/tambah-pesanan') ?>"><i class="fas fa-plus mr-2"></i>Tambah Pesanan</a>
+                    <a class="btn btn-primary" href="<?= base_url('users/tambah-user') ?>"><i class="fas fa-plus mr-2"></i>Tambah User</a>
                 </div>
             </div>
         
@@ -29,36 +29,36 @@
                         <thead class="thead-dark">
                             <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Kode Transaksi</th>
-                            <th scope="col">Id User</th>
-                            <th scope="col">Tgl Order</th>
-                            <th scope="col">Total Pembayaran</th>
-                            <th scope="col">Tanggal Pembayaran</th>
-                            <th scope="col">Status Pembayaran</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">No Telp</th>
+                            <th scope="col">Jenis Kelamin</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Activated</th>
+                            <th scope="col">Created</th>
+                            <th scope="col">Group User</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $mulai++; foreach($data->result_array() as $val) : ?>
-                            <?php if($val['STATUS_TRANSAKSI'] == 'belum dibayar' || $val['STATUS_TRANSAKSI'] == 'sudah dibayar') : ?>
                               <tr>
-                                  <th><?= $mulai++ ?></th>
-                                  <th><?= $val['KODE_TRANSAKSI'] ?></th>
-                                  <td><?= $val['ID_USER'] ?></td>
-                                  <td><?= $val['TGL_SEWA'] ?></td>
-                                  <td>Rp. <?= number_format($val['TOTAL'], 0,',','.') ?></td>
-                                  <td><?= $val['TGL_PEMBAYARAN'] ?></td>
-                                  <td><?= ucwords($val['STATUS_TRANSAKSI']) ?></td>
+                                  <th><?= $mulai++?></th>
+                                  <th><?= $val['USERNAME'] ?></th>
+                                  <td><?= $val['NAME'] ?></td>
+                                  <td><?= $val['EMAIL'] ?></td>
+                                  <td><?= $val['NO_TELP'] ?></td>
+                                  <td><?= $val['JENIS_KELAMIN'] ?></td>
+                                  <td><?= $val['ALAMAT'] ?></td>
+                                  <td><?= $val['ACTIVATED'] == 1 ? 'Aktiv' : 'Belum Aktif' ;?></td>
+                                  <td><?= $val['CREATED'] ?></td>
+                                  <td><?php if($val['GROUP_USER'] == 1){echo 'Super Admin';}elseif($val['GROUP_USER'] == 2){echo'Admin';}else{echo'User';} ?></td>
                                   <td class="text-center">
-                                    <a class="badge badge-warning" href="<?= base_url('mobil/detail-mobil/').$val['ID']?>">Detail</a>
-                                    <?php if($val['STATUS_TRANSAKSI'] == 'belum dibayar') :  ?>
-                                      <a class="badge badge-primary" href="<?= base_url('pesanan/bayar-pesanan/').$val['ID'] ?>">Bayar</a>
-                                    <?php elseif($val['STATUS_TRANSAKSI'] == 'sudah dibayar'): ?>
-                                      <a class="badge badge-primary" href="<?= base_url('pesanan/proses-pesanan/').$val['ID'] ?>">Proses</a>
-                                    <?php endif; ?>
+                                    <a class="badge badge-primary" href="<?= base_url('users/edit-user/').$val['ID_USER']?>">Edit</a>
+                                    <a class="badge badge-danger" href="<?= base_url('users/delete-user/').$val['ID_USER']?>">Delete</a>
                                   </td>
                               </tr>
-                            <?php endif; ?>
                             <?php endforeach; ?>
                         </tbody>
                     </table>

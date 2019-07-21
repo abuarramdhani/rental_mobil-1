@@ -25,26 +25,28 @@
             <span>Pesanan</span></a>
         </li>
 
-        <li class="nav-item <?php if($this->uri->segment(1) == 'proses-peminjaman'){echo 'active';} ?>">
-            <a class="nav-link" href="<?= base_url('proses-peminjaman') ?>">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'peminjaman'){echo 'active';} ?>">
+            <a class="nav-link" href="<?= base_url('peminjaman') ?>">
             <i class="fas fa-tasks"></i>
             <span>Proses Peminjaman</span></a>
         </li>
 
-        <li class="nav-item <?php if($this->uri->segment(1) == 'histori-transaksi'){echo 'active';} ?>">
-            <a class="nav-link" href="<?= base_url('histori-transaksi') ?>">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'transaksi'){echo 'active';} ?>">
+            <a class="nav-link" href="<?= base_url('transaksi') ?>">
             <i class="fas fa-history"></i>
             <span>Histori Transaksi</span></a>
         </li>
 
+        <?php if($this->session->userdata('role_id') == 1) : ?>
         <li class="nav-item <?php if($this->uri->segment(1) == 'users'){echo 'active';} ?>">
             <a class="nav-link" href="<?= base_url('users') ?>">
             <i class="fas fa-users"></i>
             <span>Users</span></a>
         </li>
+        <?php endif; ?>
 
-        <li class="nav-item <?php if($this->uri->segment(1) == 'track-mobil'){echo 'active';} ?>">
-            <a class="nav-link" href="<?= base_url('track-mobil') ?>">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'track'){echo 'active';} ?>">
+            <a class="nav-link" href="<?= base_url('track') ?>">
             <i class="fas fa-map-marked-alt"></i>
             <span>Lokasi Mobil</span></a>
         </li>

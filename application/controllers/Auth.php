@@ -29,7 +29,7 @@ class Auth extends CI_Controller {
             }else{
                 // Jika berhasil
                 $this->session->set_userdata($berhasil['data_session']);
-                $this->session->set_flashdata('message', FlassData($berhasil['message']));
+                $this->session->set_flashdata('message', FlassData($berhasil['message'], 'success'));
                 redirect('mobil');
             }
         }

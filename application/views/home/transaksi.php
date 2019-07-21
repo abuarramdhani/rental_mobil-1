@@ -17,9 +17,6 @@
                 <div class="col-6">
                     <h1 class="h3 mb-4 text-gray-800">Halaman Pesanan</h1>
                 </div>
-                <div class="col-6 text-right">
-                    <a class="btn btn-primary" href="<?= base_url('pesanan/tambah-pesanan') ?>"><i class="fas fa-plus mr-2"></i>Tambah Pesanan</a>
-                </div>
             </div>
         
             <div class="row">
@@ -35,12 +32,10 @@
                             <th scope="col">Total Pembayaran</th>
                             <th scope="col">Tanggal Pembayaran</th>
                             <th scope="col">Status Pembayaran</th>
-                            <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $mulai++; foreach($data->result_array() as $val) : ?>
-                            <?php if($val['STATUS_TRANSAKSI'] == 'belum dibayar' || $val['STATUS_TRANSAKSI'] == 'sudah dibayar') : ?>
                               <tr>
                                   <th><?= $mulai++ ?></th>
                                   <th><?= $val['KODE_TRANSAKSI'] ?></th>
@@ -49,16 +44,7 @@
                                   <td>Rp. <?= number_format($val['TOTAL'], 0,',','.') ?></td>
                                   <td><?= $val['TGL_PEMBAYARAN'] ?></td>
                                   <td><?= ucwords($val['STATUS_TRANSAKSI']) ?></td>
-                                  <td class="text-center">
-                                    <a class="badge badge-warning" href="<?= base_url('mobil/detail-mobil/').$val['ID']?>">Detail</a>
-                                    <?php if($val['STATUS_TRANSAKSI'] == 'belum dibayar') :  ?>
-                                      <a class="badge badge-primary" href="<?= base_url('pesanan/bayar-pesanan/').$val['ID'] ?>">Bayar</a>
-                                    <?php elseif($val['STATUS_TRANSAKSI'] == 'sudah dibayar'): ?>
-                                      <a class="badge badge-primary" href="<?= base_url('pesanan/proses-pesanan/').$val['ID'] ?>">Proses</a>
-                                    <?php endif; ?>
-                                  </td>
                               </tr>
-                            <?php endif; ?>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
