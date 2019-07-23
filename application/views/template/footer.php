@@ -11,7 +11,7 @@
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/js/sb-admin-2.min.js') ?>"></script>
   <?php if($this->uri->segment(1) == 'track') : ?>
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALu2gIJcAJv4AlwlgLCcJIWXnh3rs1KzI"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=<Your Api Key>"></script>
   <script>
   function initialize() {
     var propertiPeta = {
